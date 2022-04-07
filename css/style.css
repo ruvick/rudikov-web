@@ -115,7 +115,7 @@ body {
   flex-direction: column; }
 
 .page {
-  padding: 60px 0 70px 0;
+  padding: 0px 0 70px 0;
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto; }
@@ -534,7 +534,7 @@ input:-moz-placeholder {
   color: #888; }
 
 h1 {
-  font-size: 27px;
+  font-size: 36px;
   font-weight: 600;
   line-height: 144.44444%;
   color: #fff; }
@@ -566,6 +566,15 @@ h4 {
 
 .rub:after {
   content: "₽"; }
+
+.nuar_blk {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: #00000035; }
 
 .noselect {
   -webkit-touch-callout: none;
@@ -791,7 +800,7 @@ body.ie .ibg img {
 /* Слайдер */
 .info-sl__slider {
   min-width: 0;
-  max-width: 852px;
+  max-width: 100%;
   width: 100%; }
 
 .info-sl__slider .slick-list {
@@ -1147,7 +1156,8 @@ body.ie .ibg img {
   border-radius: 15px; }
 
 .header {
-  padding: 22px 0 0 0; }
+  padding: 15px 0;
+  background: #F2F2F2; }
   .header__row {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
@@ -1184,14 +1194,16 @@ body.ie .ibg img {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 150px;
     flex: 0 0 150px;
     margin-top: 3px; }
     .header__callback a {
       font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 3px; }
+      font-weight: 600; }
       .header__callback a:before {
         content: '';
         float: left;
@@ -1461,47 +1473,69 @@ body.ie .ibg img {
 .footer__row .header__callback p {
   color: #A9A9A9; }
 
-.main-info__row {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between; }
+.about {
+  padding: 35px 0; }
 
-.main-info__column {
-  width: 74.33%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column; }
+.about__tilte {
+  margin-bottom: 30px; }
 
-.main-info__item-img {
-  width: 100%;
-  min-height: 400px;
+.about__subtilte {
+  font-size: 16px;
+  line-height: 1.5; }
+
+.advantages {
+  padding: 35px 0;
+  background: #F2F2F2; }
+
+.advantages__tilte {
+  margin-bottom: 30px; }
+
+.advantages__subtilte {
+  font-size: 16px;
+  line-height: 1.5; }
+
+.methods-home {
+  padding-top: 35px; }
+
+.services {
+  padding: 35px 0; }
+
+.services__tilte {
+  margin-bottom: 30px; }
+
+.main-info {
+  position: relative;
   background-image: url("../img/head-banner.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
-  padding: 41px 15px 50px 30px;
-  margin-bottom: 29px;
-  border-radius: 5px;
-  overflow: hidden; }
-  .main-info__item-img *:last-child {
-    margin-bottom: 0; }
-  .main-info__item-img h1 {
-    margin-bottom: 20px; }
-  .main-info__item-img p {
-    font-size: 16px;
-    line-height: 150%;
-    color: #cecece;
+  background-position: center center; }
+  .main-info__row {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .main-info__item-img {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    min-height: 400px;
+    padding: 41px 0px 50px 0px;
+    overflow: hidden; }
+    .main-info__item-img *:last-child {
+      margin-bottom: 0; }
+    .main-info__item-img h1 {
+      margin-bottom: 20px; }
+    .main-info__item-img p {
+      font-size: 20px;
+      line-height: 150%;
+      color: #fff;
+      margin-bottom: 30px; }
+  .main-info__btn {
+    width: 238px;
+    height: 55px;
     margin-bottom: 30px; }
-
-.main-info__btn {
-  width: 238px;
-  height: 55px;
-  margin-bottom: 30px; }
-
-.main-info__item-slider {
-  max-width: 852px;
-  width: 100%; }
+  .main-info__item-slider {
+    max-width: 100%;
+    width: 100%; }
 
 .main-info__column-r {
   -webkit-box-orient: vertical;
@@ -1616,14 +1650,13 @@ body.ie .ibg img {
 .reviews-block__item_bot {
   margin-bottom: 28px; }
 
-.methods {
-  padding: 85px 0 0px 0; }
-  .methods h2 {
-    color: #1f1f1f;
-    margin-bottom: 30px; }
-  .methods h1 {
-    margin-bottom: 60px;
-    color: #1f1f1f; }
+.methods h2 {
+  color: #1f1f1f;
+  margin-bottom: 30px; }
+
+.methods h1 {
+  margin-bottom: 60px;
+  color: #1f1f1f; }
 
 .methods-sect {
   padding: 0; }
