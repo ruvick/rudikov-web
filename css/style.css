@@ -1500,7 +1500,7 @@ body.ie .ibg img {
 .services {
   padding: 35px 0; }
 
-.services__tilte {
+.services__title {
   margin-bottom: 30px; }
 
 .main-info {
@@ -2037,6 +2037,31 @@ body.ie .ibg img {
 
 .method-info__item p {
   margin-bottom: 0 !important; }
+
+.work-examples {
+  padding: 35px 0 0 0; }
+
+.work-examples__title {
+  margin-bottom: 30px; }
+
+.work-examples__row .prod-card__column {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 33.3%;
+  flex: 0 1 33.3%;
+  padding: 0 5px;
+  margin-bottom: 10px; }
+
+.work-examples__row .prod-card__body {
+  padding-bottom: 0;
+  border: 1px solid grey; }
+
+.work-examples__row .prod-card__link img {
+  max-width: 100%;
+  width: 100%;
+  height: 100%; }
+
+.work-examples__btn {
+  margin-top: 15px; }
 
 @media (max-width: 1120px) {
   .container {
