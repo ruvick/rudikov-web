@@ -1,0 +1,48 @@
+// Слайдер ====================================================================================================================================================
+
+.slider {
+	&__item {
+		img{
+			width: 100%;
+			// height: 435px;
+			object-fit:cover;
+		}
+	}
+}
+
+/* Слайдер */
+.info-sl__slider {
+	min-width: 0;
+	max-width: 852px;
+	width: 100%;
+	// flex: 1 0 auto;
+}
+.info-sl__slider .slick-list {
+	border-radius: 5px;
+}
+/* Точки (булиты) */
+.info-sl__slider .slick-dots {
+	display: flex;
+	width: 325px;
+	justify-content: space-between;
+	position: absolute;
+	bottom: -35px;
+	left: 50%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+}
+.info-sl__slider .slick-dots li {
+	list-style: none;
+}
+/* Элемент точки */
+.info-sl__slider .slick-dots li button {
+	font-size: 0;
+	width: 10px;
+	height: 10px;
+	background: #E1E1E1;
+	border-radius: 50%;
+}
+/* Активная точка */
+.info-sl__slider .slick-dots li.slick-active button {
+	background: #FED529;
+}
