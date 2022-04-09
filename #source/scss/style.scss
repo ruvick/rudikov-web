@@ -75,7 +75,7 @@ body {
 }
 
 .page {
-	padding: 0px 0 70px 0;
+	// padding: 0px 0 70px 0;
 	flex: 1 1 auto;
 }
 
@@ -113,7 +113,7 @@ body {
 //@import "popover.min.scss";
 //@import "baguetteBox.scss";
 // @import "fancybox.min.scss";
-// @import "pagging.scss";
+@import "pagging.scss";
 //@import "icons.scss";
 // @import "map.scss";
 @import "slider.scss";
@@ -136,8 +136,32 @@ body {
 }
 
 .about__subtilte {
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 1.5;
+	margin-bottom: 10px;
+}
+
+.about__list {}
+
+.about__list-item {
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+	margin-bottom: 8px;
+
+	&::before {
+		content: '';
+		float: left;
+		width: 5px;
+		height: 5px;
+		background: #FED529;
+		border-radius: 15px;
+		margin-right: 8px;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 //========================================================================================================================================================
@@ -211,8 +235,6 @@ body {
 	}
 
 	&__btn {
-		width: 238px;
-		height: 55px;
 		margin-bottom: 30px;
 	}
 
@@ -863,7 +885,8 @@ body {
 //====================================================================================================================================================
 
 .work-examples {
-	padding: 35px 0 0 0;
+	padding: 35px 0;
+	background: #F2F2F2;
 }
 
 .work-examples__title {
@@ -890,6 +913,19 @@ body {
 
 .work-examples__btn {
 	margin-top: 15px;
+}
+
+//========================================================================================================================================================
+
+.work-examples-page {
+	background: #fff;
+}
+
+.work-examples-page__title {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 100%;
+	color: #1f1f1f;
 }
 
 //========================================================================================================================================================
