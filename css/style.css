@@ -795,6 +795,14 @@ body.ie .ibg img {
 .baloon-close {
   top: 18px !important; }
 
+::-webkit-scrollbar {
+  overflow-y: scroll;
+  width: 7px;
+  background-color: #f9f9fd; }
+
+::-webkit-scrollbar-thumb {
+  background-color: grey; }
+
 #breadcrumbs {
   margin-bottom: 15px; }
 
@@ -1308,7 +1316,8 @@ body.ie .ibg img {
 
 .header {
   padding: 15px 0;
-  background: #F2F2F2; }
+  background: #F2F2F2;
+  border-bottom: 1.6px solid #FED529; }
   .header__row {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
@@ -1344,8 +1353,7 @@ body.ie .ibg img {
     align-items: flex-end;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 150px;
-    flex: 0 0 150px;
-    margin-top: 3px; }
+    flex: 0 0 150px; }
     .header__callback a {
       font-size: 16px;
       font-weight: 600; }
@@ -1362,7 +1370,8 @@ body.ie .ibg img {
     .header__callback p {
       color: #7d7d7d;
       -ms-flex-item-align: end;
-      align-self: flex-end; }
+      align-self: flex-end;
+      line-height: 1; }
 
 .menu {
   -webkit-box-flex: 0;
@@ -1373,19 +1382,14 @@ body.ie .ibg img {
     -ms-flex-pack: justify;
     justify-content: space-between; }
   .menu__link {
-    font-family: Gilroy;
+    font-family: 'Gilroy';
     font-size: 12px;
     font-weight: 400;
     color: #7D7D7D;
-    padding: 8px 13px 8px 13px;
-    border-radius: 18px; }
+    padding: 3px 13px 3px 13px; }
     .menu__link:hover {
       color: #000;
-      background: #fee429b5;
-      border-radius: 18px;
-      -webkit-transition: all 0.8s;
-      -o-transition: all 0.8s;
-      transition: all 0.8s; }
+      border-bottom: 1.8px solid #fee429b5; }
 
 .mob-menu {
   position: fixed;

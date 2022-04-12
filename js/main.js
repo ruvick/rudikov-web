@@ -49,24 +49,24 @@ tpl:'<div class="fancybox-share"><h1>{{SHARE}}</h1><p><a class="fancybox-share__
 var isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
 if (isMobile.any()) { }
 
-	if (location.hash) {
-		var hsh = location.hash.replace('#', '');
-		if ($('.popup-' + hsh).length > 0) {
-			popupOpen(hsh);
-		} else if ($('div.' + hsh).length > 0) {
-			$('body,html').animate({ scrollTop: $('div.' + hsh).offset().top, }, 500, function () { });
-		}
+if (location.hash) {
+	var hsh = location.hash.replace('#', '');
+	if ($('.popup-' + hsh).length > 0) {
+		popupOpen(hsh);
+	} else if ($('div.' + hsh).length > 0) {
+		$('body,html').animate({ scrollTop: $('div.' + hsh).offset().top, }, 500, function () { });
 	}
-	$('.wrapper').addClass('loaded');
+}
+$('.wrapper').addClass('loaded');
 
-	var act = "click";
-	if (isMobile.iOS()) {
-		var act = "touchstart"; 
-	}
+var act = "click";
+if (isMobile.iOS()) {
+	var act = "touchstart";
+}
 
 
 //BURGER
-let iconMenu = document.querySelector(".icon-menu"); 
+let iconMenu = document.querySelector(".icon-menu");
 let body = document.querySelector("body");
 let menuBody = document.querySelector(".mob-menu");
 if (iconMenu) {
@@ -78,27 +78,57 @@ if (iconMenu) {
 }
 
 // Строка поиска на мобилках
-let mobsearch = document.querySelector(".mob-search");
-let headsearch = document.querySelector(".header__search");
-if (mobsearch) {
-	mobsearch.addEventListener("click", function () {
-		headsearch.classList.toggle("active");
-	});
-}
+// let mobsearch = document.querySelector(".mob-search");
+// let headsearch = document.querySelector(".header__search");
+// if (mobsearch) {
+// 	mobsearch.addEventListener("click", function () {
+// 		headsearch.classList.toggle("active");
+// 	});
+// }
 
 // Открытие ПК меню при наведении до 1024px
-if (document.body.clientWidth>1024){
-	function hideMenu() {
-		$('.mob-menu').slideUp(600);
+// if (document.body.clientWidth>1024){
+// 	function hideMenu() {
+// 		$('.mob-menu').slideUp(600);
+// 	}
+// 	function showMenu() {
+// 		$('.mob-menu').slideDown(600);
+// 	}
+// 	$(document).ready(function() {
+// 		$(".menu__catalogy").on("mouseover", showMenu);
+// 		$(".header__menu").on("mouseleave", hideMenu);
+// 	});
+// }
+
+
+// Закрытие моб меню при клике вне области меню 
+window.addEventListener('click', e => { // при клике в любом месте окна браузера
+	const target = e.target // находим элемент, на котором был клик
+	if (!target.closest('.icon-menu') && !target.closest('.mob-menu') && !target.closest('.header__mob-search-btn') && !target.closest('.header__search-mob') && !target.closest('._popup-link') && !target.closest('.popup')) { // если этот элемент или его родительские элементы не окно навигации и не кнопка
+		iconMenu.classList.remove('active') // то закрываем окно навигации, удаляя активный класс
+		menuBody.classList.remove('active')
+		body.classList.remove('_lock')
+		headsearch.classList.remove('_active')
 	}
-	function showMenu() {
-		$('.mob-menu').slideDown(600);
-	}
-	$(document).ready(function() {
-		$(".menu__catalogy").on("mouseover", showMenu);
-		$(".header__menu").on("mouseleave", hideMenu);
-	});
-}
+})
+
+// Плавная прокрутка
+const smotScrollElems = document.querySelectorAll('a[href^="#"]:not(a[href="#"])');
+
+smotScrollElems.forEach(link => {
+	link.addEventListener('click', (event) => {
+		event.preventDefault()
+		console.log(event);
+
+		const id = link.getAttribute('href').substring(1)
+		console.log('id : ', id);
+
+		document.getElementById(id).scrollIntoView({
+			behavior: 'smooth'
+		});
+	})
+});
+// ==========================================================================
 
 // Slider на главной
 $('.info-sl__slider').slick({
@@ -153,22 +183,22 @@ $('.select-slider-big').slick({
 
 
 // input file
-    let inputs = document.querySelectorAll('.input__file');
-    Array.prototype.forEach.call(inputs, function (input) {
-      let label = input.nextElementSibling,
-        labelVal = label.querySelector('.input__file-button-text').innerText;
-  
-      input.addEventListener('change', function (e) {
-        let countFiles = '';
-        if (this.files && this.files.length >= 1)
-          countFiles = this.files.length;
-  
-        if (countFiles)
-          label.querySelector('.input__file-button-text').innerText = 'Выбрано файлов: ' + countFiles;
-        else
-          label.querySelector('.input__file-button-text').innerText = labelVal;
-      });
-    });
+let inputs = document.querySelectorAll('.input__file');
+Array.prototype.forEach.call(inputs, function (input) {
+	let label = input.nextElementSibling,
+		labelVal = label.querySelector('.input__file-button-text').innerText;
+
+	input.addEventListener('change', function (e) {
+		let countFiles = '';
+		if (this.files && this.files.length >= 1)
+			countFiles = this.files.length;
+
+		if (countFiles)
+			label.querySelector('.input__file-button-text').innerText = 'Выбрано файлов: ' + countFiles;
+		else
+			label.querySelector('.input__file-button-text').innerText = labelVal;
+	});
+});
 
 
 // Выбо колличества
@@ -189,36 +219,36 @@ $('.plus').click(function () {
 
 
 // Маска телефона
-var inputmask_phone = {"mask": "+9(999)999-99-99"};
-jQuery("input[type=tel]").inputmask(inputmask_phone);  
+var inputmask_phone = { "mask": "+9(999)999-99-99" };
+jQuery("input[type=tel]").inputmask(inputmask_phone);
 
 
 
 //Валидация телефона + Отправщик
-jQuery('.header__form button').click(function(e){ 
+jQuery('.header__form button').click(function (e) {
 	e.preventDefault();
 
-	let persPhone = jQuery('.header__form input[name=tel]').val(); 
-	if ((persPhone == "")||(persPhone.indexOf("_")>0)) { 
-		$(this).siblings('input[name=tel]').css("background-color","#ff91a4")
+	let persPhone = jQuery('.header__form input[name=tel]').val();
+	if ((persPhone == "") || (persPhone.indexOf("_") > 0)) {
+		$(this).siblings('input[name=tel]').css("background-color", "#ff91a4")
 		return;
 	}
 
-	var  jqXHR = jQuery.post(
+	var jqXHR = jQuery.post(
 		"../sender/send.php",
 		{
-			phone: jQuery('.header__form input[name=tel]').val(),    
+			phone: jQuery('.header__form input[name=tel]').val(),
 			name: jQuery('.header__form input[name=name]').val(),
 			mail: jQuery('.header__form textarea[name=text]').val(),
 		}
 
-		);
+	);
 
 
 	jqXHR.done(function (responce) {
 		console.log(responce);
-		document.location.href = "../thank-you.html"; 
-		jQuery('.header__form input[name=tel]').val("");  
+		document.location.href = "../thank-you.html";
+		jQuery('.header__form input[name=tel]').val("");
 		jQuery('.header__form input[name=name]').val("");
 		jQuery('.header__form textarea[name=text]').val("");
 	});
@@ -232,12 +262,12 @@ jQuery('.header__form button').click(function(e){
 
 
 $('.main-info__vid').fancybox({
-        openEffect  : 'none',
-        closeEffect : 'none',
-        helpers : {
-            media : {}
-        }
-    });
+	openEffect: 'none',
+	closeEffect: 'none',
+	helpers: {
+		media: {}
+	}
+});
 
 //ZOOM
 if ($('.gallery').length > 0) {

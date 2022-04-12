@@ -1,6 +1,7 @@
 .header {
 	padding: 15px 0;
 	background: #F2F2F2;
+	border-bottom: 1.6px solid #FED529;
 
 	// .header__row
 	&__row {
@@ -50,7 +51,6 @@
 		flex-direction: column;
 		align-items: flex-end;
 		flex: 0 0 150px;
-		margin-top: 3px;
 
 		a {
 			font-size: 16px;
@@ -72,6 +72,7 @@
 		p {
 			color: #7d7d7d;
 			align-self: flex-end;
+			line-height: 1;
 		}
 	}
 }
@@ -101,18 +102,19 @@
 
 	// .menu__link
 	&__link {
-		font-family: Gilroy;
+		font-family: 'Gilroy';
 		font-size: 12px;
 		font-weight: 400;
 		color: #7D7D7D;
-		padding: 8px 13px 8px 13px;
-		border-radius: 18px;
+		padding: 3px 13px 3px 13px;
+		// border-radius: 18px;
 
 		&:hover {
 			color: #000;
-			background: #fee429b5;
-			border-radius: 18px;
-			transition: all 0.8s;
+			// background: #fee429b5;
+			// border-radius: 10px;
+			// transition: all 0.8s;
+			border-bottom: 1.8px solid #fee429b5;
 		}
 
 		// .menu__link_cat
